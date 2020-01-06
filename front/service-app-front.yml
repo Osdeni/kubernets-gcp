@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: servico-app-front-ordemservico
+spec:
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 80
+      nodePort: 30001
+  selector:
+    name: ordem-servico-front

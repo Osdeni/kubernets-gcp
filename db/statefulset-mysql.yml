@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysql-statefulset
+spec:
+  serviceName: mysql-statefulset
+  selector:
+    matchLabels:
+      name: mysql-statefulset
+  template:
+    metadata:
+      labels:
+        name: mysql-statefulset
+    spec:
+      containers:
+        - name: container-mysql-statefulset
+          image:  mysql:5.7.28
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_DATABASE
+              value: ordem_servico
+            - name: MYSQL_ROOT_PASSWORD
+              value: root

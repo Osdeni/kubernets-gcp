@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: api-ordemservico-deployment
+spec:
+    selector:
+        matchLabels:
+            name: ordem-servico-api
+    template:
+        metadata:
+            labels:
+                name: ordem-servico-api
+        spec:
+            containers:
+                - name: container-ordem-servico-api
+                  image:  osdeni/osdeni-ordem-servico-api:v6
+                  ports:
+                    - containerPort: 8082

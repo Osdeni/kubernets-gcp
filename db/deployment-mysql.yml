@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: mysql-deployment
+spec:
+    selector:
+        matchLabels:
+            name: mysql-deployment
+    template:
+        metadata:
+            labels:
+                name: mysql-deployment
+        spec:
+            containers:
+                - name: container-mysql-deployment
+                  image:  mysql:5.5
+                  ports:
+                    - containerPort: 3306
+                  env:
+                    - name: MYSQL_DATABASE
+                      value: ordem_servico
+                    - name: MYSQL_ROOT_PASSWORD
+                      value: root
